@@ -50,16 +50,21 @@ sudo ./install_bin.sh
 # ВАЖНО: install_easy.sh обычно требует ввода данных от пользователя (интерактивный)
 sudo ./install_easy.sh
 
-# --- Установка TG-WS-Proxy v1.2.1 ---
-echo "📦 Установка TG-WS-Proxy v1.2.1..."
-cd /tmp
-# Скачиваем .deb пакет
-wget https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/TgWsProxy_linux_amd64.deb
-# Устанавливаем его
-sudo dpkg -i TgWsProxy_linux_amd64.deb
-# Доставляем зависимости, если их не хватило
-sudo apt install -f -y
-# Чистим за собой
+# --- Установка и запуск TG-WS-Proxy ---
+echo "📦 Устанавливаю TG-WS-Proxy от Flowseal..."
+
+# 1. Скачиваем прокси в папку /opt (чтобы путь был всегда одинаковый)
+sudo git clone https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/TgWsProxy_linux_amd64.deb /opt/tgproxy
+
+# 2. Настраиваем автозапуск (Cron)
+(crontab -l 2>/dev/null; echo "@reboot cd /opt/tgproxy/proxy && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &") | crontab -
+
+# 3. Запускаем немедленно
+cd /opt/tgproxy/proxy
+nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &
+
+echo "✅ Прокси установлен в /opt/tgproxy и запущен на 0.0.0.0:1080"
+
 rm TgWsProxy_linux_amd64.deb
 
 
@@ -69,29 +74,6 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 echo "✅ Всё готово! Проверь Tailscale командой: tailscale status"
 # --- Настройка планировщика (Cron) ---
 
-# Удаляем старые задачи, чтобы не дублировались, и записываем новые
-(
-  # 1. Автозапуск прокси при загрузке (на порт 1080 для Tailscale)
-# --- Настройка автозапуска и немедленный старт прокси ---
-echo "🚀 Настраиваю и запускаю TG-WS-Proxy на 0.0.0.0:1080..."
-
-# 1. Определяем путь к папке (чтобы работало у любого юзера)
-PROXY_PATH="$HOME/tg-ws-proxy-1.2.1/proxy"
-
-# 2. Добавляем в Cron для автозапуска после перезагрузки
-(crontab -l 2>/dev/null; echo "@reboot cd $PROXY_PATH && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &") | crontab -
-
-# 3. ЗАПУСКАЕМ ПРЯМО СЕЙЧАС (чтобы сразу было 0.0.0.0)
-cd "$PROXY_PATH"
-nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &
-
-echo "✅ Прокси запущен и слушает 0.0.0.0:1080!"
-  
-  # 2. Обновление графика каждую минуту (как у тебя сейчас)
-  echo "* * * * * /usr/bin/php /var/www/html/service/index.php"
-) | crontab -
-
-echo "✅ Задачи Cron настроены (прокси на 0.0.0.0:1080 и графики)"
 
 # --- Настройка сети для Exit Node ---
 echo "⚙️ Настраиваю систему для работы Exit Node..."
