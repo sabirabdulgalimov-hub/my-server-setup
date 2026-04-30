@@ -1,4 +1,9 @@
 #!/bin/bash
+# Установка базовых утилит
+sudo apt update && sudo apt install -y curl wget git
+
+# Установка Tailscale (официальный скрипт)
+curl -fsSL https://tailscale.com/install.sh | sh
 
 echo "🚀 Запуск полной установки сервера..."
 
