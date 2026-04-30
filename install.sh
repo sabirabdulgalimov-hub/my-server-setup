@@ -72,7 +72,20 @@ echo "✅ Всё готово! Проверь Tailscale командой: tailsc
 # Удаляем старые задачи, чтобы не дублировались, и записываем новые
 (
   # 1. Автозапуск прокси при загрузке (на порт 1080 для Tailscale)
-  echo "@reboot cd $HOME/tg-ws-proxy-1.2.1/proxy && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &"
+# --- Настройка автозапуска и немедленный старт прокси ---
+echo "🚀 Настраиваю и запускаю TG-WS-Proxy на 0.0.0.0:1080..."
+
+# 1. Определяем путь к папке (чтобы работало у любого юзера)
+PROXY_PATH="$HOME/tg-ws-proxy-1.2.1/proxy"
+
+# 2. Добавляем в Cron для автозапуска после перезагрузки
+(crontab -l 2>/dev/null; echo "@reboot cd $PROXY_PATH && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &") | crontab -
+
+# 3. ЗАПУСКАЕМ ПРЯМО СЕЙЧАС (чтобы сразу было 0.0.0.0)
+cd "$PROXY_PATH"
+nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &
+
+echo "✅ Прокси запущен и слушает 0.0.0.0:1080!"
   
   # 2. Обновление графика каждую минуту (как у тебя сейчас)
   echo "* * * * * /usr/bin/php /var/www/html/service/index.php"
