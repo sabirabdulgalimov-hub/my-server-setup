@@ -79,3 +79,25 @@ echo "✅ Всё готово! Проверь Tailscale командой: tailsc
 ) | crontab -
 
 echo "✅ Задачи Cron настроены (прокси на 0.0.0.0:1080 и графики)"
+
+# --- Настройка сети для Exit Node ---
+echo "⚙️ Настраиваю систему для работы Exit Node..."
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p > /dev/null
+
+# --- Авторизация в Tailscale ---
+echo "🔑 Сейчас появится ссылка для входа в Tailscale."
+echo "После того как вы войдете в аккаунт, скрипт автоматически настроит Exit Node."
+echo "---------------------------------------------------------"
+sudo tailscale up
+
+# Скрипт подождет, пока пользователь залогинится и нажмет Enter
+echo "---------------------------------------------------------"
+read -p "Нажмите [Enter] ПОСЛЕ того, как успешно войдете в аккаунт в браузере..."
+
+# --- Финальная настройка Exit Node ---
+echo "🚀 Активирую режим Exit Node..."
+sudo tailscale up --advertise-exit-node
+
+echo "✅ Всё готово! Не забудьте поставить галочку 'Exit Node' в панели на сайте Tailscale."
