@@ -1,0 +1,257 @@
+
+===================================
+[ 2026-04-23 21:21 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=4 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-23 21:22 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=4 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-23 21:58 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=1 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1 --dpi-desync-fake-tls=0x00000000
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 00:39 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : tpws --split-pos=midsld --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --split-pos=2 --oob --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --split-pos=2 --disorder --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --split-pos=2 --oob --disorder --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --tlsrec=midsld --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --tlsrec=midsld --oob --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --tlsrec=midsld --disorder --mss=88
+curl_test_https_tls12 ipv4 youtube.com : tpws --tlsrec=midsld --oob --disorder --mss=88
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=4 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-fooling=badsum
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-fooling=badseq --dpi-desync-fake-tls=0x00000000
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-fooling=datanoack --dpi-desync-fake-tls=0x00000000
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-fooling=ts
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-fooling=md5sig --dup=1 --dup-cutoff=n2 --dup-fooling=md5sig --dpi-desync-fake-tls=0x00000000 --dpi-desync-fake-tls=! --dpi-desync-fake-tls-mod=rnd,rndsni,dupsid
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-ttl=4 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1 --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-fooling=badsum --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-fooling=badseq --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-fooling=datanoack --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-fooling=ts --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-fooling=md5sig --dup=1 --dup-cutoff=n2 --dup-fooling=md5sig --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-ttl=4 --dpi-desync-hostfakesplit-mod=altorder=1 --dpi-desync-hostfakesplit-midhost=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-fooling=badsum
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-fooling=badseq --dpi-desync-hostfakesplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-fooling=datanoack
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-fooling=ts
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-fooling=md5sig --dpi-desync-hostfakesplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-ttl=4 --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-fooling=badsum --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-fooling=badseq --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-fooling=datanoack --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-fooling=ts --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-fooling=md5sig --dup=1 --dup-cutoff=n2 --dup-fooling=md5sig --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=1 --dpi-desync-autottl=-1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=1 --dpi-desync-autottl=-3 --dpi-desync-fake-tls-mod=rnd,dupsid,rndsni,padencap
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=1 --dpi-desync-autottl=-4
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-ttl=1 --dpi-desync-autottl=-1 --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-ttl=1 --dpi-desync-autottl=-4 --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakedsplit --dpi-desync-ttl=1 --dpi-desync-autottl=-5 --dpi-desync-split-pos=1 --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-ttl=1 --dpi-desync-autottl=-1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=hostfakesplit --dpi-desync-ttl=1 --dpi-desync-autottl=-2
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fakeddisorder --dpi-desync-ttl=1 --dpi-desync-autottl=-1 --dpi-desync-split-pos=midsld --dpi-desync-fakedsplit-mod=altorder=1
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=syndata
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=syndata,multisplit --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=syndata,multidisorder --dpi-desync-fake-syndata=/home/sabir/zapret-72.12/files/fake/tls_clienthello_iana_org.bin --dpi-desync-split-pos=1,midsld
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 02:11 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 mobile.twitter.com : nfqws not working
+curl_test_https_tls12 ipv4 mobile.twitter.com : nfqws not working
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 08:42 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 mobile.twitter.com : tpws not working
+curl_test_http ipv4 mobile.twitter.com : nfqws not working
+curl_test_https_tls12 ipv4 mobile.twitter.com : tpws not working
+curl_test_https_tls12 ipv4 mobile.twitter.com : nfqws not working
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 10:34 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 twitter.com : tpws not working
+curl_test_http ipv4 twitter.com : nfqws not working
+curl_test_https_tls12 ipv4 twitter.com : tpws not working
+curl_test_https_tls12 ipv4 twitter.com : nfqws not working
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 11:32 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 twitter.com : tpws not working
+curl_test_http ipv4 twitter.com : nfqws not working
+curl_test_https_tls12 ipv4 twitter.com : tpws not working
+curl_test_https_tls12 ipv4 twitter.com : nfqws not working
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 11:37 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=4
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-24 11:55 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 cloudflare.com : working without bypass
+curl_test_https_tls12 ipv4 cloudflare.com : working without bypass
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-25 05:37 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 cloudflare.com : working without bypass
+curl_test_https_tls12 ipv4 cloudflare.com : working without bypass
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-26 21:16 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 deskreen.com : nfqws --dpi-desync=fakedsplit --dpi-desync-ttl=5 --orig-ttl=1 --orig-mod-start=s1 --orig-mod-cutoff=d1 --dpi-desync-split-pos=midsld
+curl_test_https_tls12 ipv4 deskreen.com : nfqws --dpi-desync=multisplit --dpi-desync-split-pos=midsld
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
+
+===================================
+[ 2026-04-27 20:00 ] FINAL SUMMARY REPORT: youtube.com
+===================================
+* SUMMARY
+curl_test_http ipv4 youtube.com : working without bypass
+curl_test_https_tls12 ipv4 youtube.com : nfqws --dpi-desync=fake --dpi-desync-ttl=3 --dpi-desync-fake-tls-mod=rnd,dupsid,rndsni,padencap
+
+Please note this SUMMARY does not guarantee a magic pill for you to copy/paste and be happy.
+Understanding how strategies work is very desirable.
+This knowledge allows to understand better which strategies to prefer and which to avoid if possible, how to combine strategies.
+Blockcheck does it's best to prioritize good strategies but it's not bullet-proof.
+It was designed not as magic pill maker but as a DPI bypass test tool.
+
+press enter to continue
+===================================
