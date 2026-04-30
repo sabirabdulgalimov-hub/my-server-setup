@@ -29,6 +29,35 @@ if [ -f configs/sudo_rules ]; then
     cat configs/sudo_rules | sudo tee -a /etc/sudoers
 fi
 
+echo "Скачиваю и устанавливаю Zapret v72.12..."
+cd /opt
+sudo wget https://github.com/bol-van/zapret/releases/download/v72.12/zapret-v72.12.tar.gz
+sudo tar -xvf zapret-v72.12.tar.gz
+sudo mv zapret-v72.12 zapret
+sudo rm zapret-v72.12.tar.gz
+
+# Подкидываем твой сохраненный конфиг из репозитория
+sudo cp ~/myserver_v2/configs/zapret.conf /opt/zapret/config
+
+# Запуск родного инсталлера
+cd /opt/zapret
+sudo ./install_bin.sh
+# ВАЖНО: install_easy.sh обычно требует ввода данных от пользователя (интерактивный)
+sudo ./install_easy.sh
+
+# --- Установка TG-WS-Proxy v1.2.1 ---
+echo "📦 Установка TG-WS-Proxy v1.2.1..."
+cd /tmp
+# Скачиваем .deb пакет
+wget https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/TgWsProxy_linux_amd64.deb
+# Устанавливаем его
+sudo dpkg -i TgWsProxy_linux_amd64.deb
+# Доставляем зависимости, если их не хватило
+sudo apt install -f -y
+# Чистим за собой
+rm TgWsProxy_linux_amd64.deb
+
+
 # 7. DNS Fix (чтобы Tailscale не отваливался)
 echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 
