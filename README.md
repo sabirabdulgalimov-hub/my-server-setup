@@ -17,3 +17,9 @@
 ### 🛠 Использованные инструменты:
 *   [zapret](https://github.com/bol-van/zapret) от **bol-van** — для обхода блокировок.
 *   [tg-ws-proxy](https://github.com/Flowseal/tg-ws-proxy) от **Flowseal** — для работы прокси. «используется версия 1.2 с поддержкой SOCKS5»
+
+### 🔗 Как использовать прокси через Tailscale:
+1. Подключитесь к сети Tailscale на своём устройстве.
+2. В Telegram (или браузере) укажите SOCKS5 прокси:
+   - **IP**: `100.x.x.x` (IP вашего сервера в Tailscale)
+   - **Порт**: `1080`
