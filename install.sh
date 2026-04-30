@@ -50,11 +50,12 @@ sudo ./install_bin.sh
 # ВАЖНО: install_easy.sh обычно требует ввода данных от пользователя (интерактивный)
 sudo ./install_easy.sh
 
-# --- Установка и запуск TG-WS-Proxy ---
-echo "📦 Устанавливаю TG-WS-Proxy от Flowseal..."
+# --- Установка и запуск TG-WS-Proxy (Python версия) ---
+echo "📦 Устанавливаю TG-WS-Proxy..."
 
-# 1. Скачиваем прокси в папку /opt (чтобы путь был всегда одинаковый)
-sudo git clone https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/TgWsProxy_linux_amd64.deb /opt/tgproxy
+# 1. Скачиваем репозиторий с кодом (а не .deb файл!)
+sudo rm -rf /opt/tgproxy # Удаляем старое, если было
+sudo wget https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/TgWsProxy_linux_amd64.deb /opt/tgproxy
 
 # 2. Настраиваем автозапуск (Cron)
 (crontab -l 2>/dev/null; echo "@reboot cd /opt/tgproxy/proxy && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &") | crontab -
@@ -62,8 +63,6 @@ sudo git clone https://github.com/Flowseal/tg-ws-proxy/releases/download/v1.2.1/
 # 3. Запускаем немедленно
 cd /opt/tgproxy/proxy
 nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &
-
-echo "✅ Прокси установлен в /opt/tgproxy и запущен на 0.0.0.0:1080"
 
 rm TgWsProxy_linux_amd64.deb
 
