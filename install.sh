@@ -72,7 +72,7 @@ echo "✅ Всё готово! Проверь Tailscale командой: tailsc
 # Удаляем старые задачи, чтобы не дублировались, и записываем новые
 (
   # 1. Автозапуск прокси при загрузке (на порт 1080 для Tailscale)
-  echo "@reboot cd /home/sabir/tg-ws-proxy-1.2.1/proxy && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &"
+  echo "@reboot cd $HOME/tg-ws-proxy-1.2.1/proxy && nohup python3 tg_ws_proxy.py --host 0.0.0.0 --port 1080 > proxy.log 2>&1 &"
   
   # 2. Обновление графика каждую минуту (как у тебя сейчас)
   echo "* * * * * /usr/bin/php /var/www/html/service/index.php"
